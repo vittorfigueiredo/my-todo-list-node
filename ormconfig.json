@@ -1,0 +1,8 @@
+{
+  "type": "sqlite",
+  "host": "localhost",
+  "port": "",
+  "username": "",
+  "password": "",
+  "database": "database.db"
+}
