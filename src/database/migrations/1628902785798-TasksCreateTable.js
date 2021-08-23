@@ -1,33 +1,38 @@
 import {MigrationInterface, QueryRunner, Table} from "typeorm";
-module.exports = class UsersCreateTable1628889236470 {
+
+module.exports = class TaskCreateTable1628893927375 {
 
     async up(queryRunner) {
       await queryRunner.createTable(
         new Table({
-          name: "users",
+          name: "tasks",
           columns: [
             {
               name: "id",
               type: "int",
-              isPrimary: true,
+              isPrimary: true
             },
             {
               name: "name",
-              type: "varchar"
+              type: "varchar",
+              isNullable: false
             },
             {
-              name: "password",
-              type: "varchar"
+              name: "description",
+              type: "varchar",
+              isNullable: false
             },
             {
               name: "created_at",
-              type: "timestamp",
-              default: "now()"
+              type: "datetime",
+              default: "now()",
+              isNullable: false
             },
             {
               name: "updated_at",
-              type: "timestamp",
-              default: "null"
+              type: "datetime",
+              default: "now()",
+              isNullable: true
             }
           ]
         })
@@ -35,6 +40,5 @@ module.exports = class UsersCreateTable1628889236470 {
     }
 
     async down(queryRunner) {
-      await queryRunner.dropTable("users");
     }
 }
